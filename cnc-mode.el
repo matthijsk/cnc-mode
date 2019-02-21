@@ -33,6 +33,9 @@
 
 ;;; Code:
 
+(defgroup cnc nil "CNC mode."
+  :prefix "cnc-")
+
 (defcustom cnc-line-number-start 10
   "Number at which automatic line numbering of CNC files will start."
   :type 'integer
