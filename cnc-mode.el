@@ -57,7 +57,6 @@ Anything other than whitespace would not make sense."
   :type 'string
   :group 'cnc)
 
-;; TODO: throw / signal error when invalid number
 ;; TODO: could this be recursive?
 (defun cnc-number-of-digits (number)
   "Return the number of digits in the integer NUMBER.
@@ -65,13 +64,12 @@ Only makes sense for positive numbers. Returns nil if the number
 is lower than or equal to 0 or larger than
 `most-positive-fixnum'."
   (if (integerp number)
-    (when (and (> number 0)
-               (<= number most-positive-fixnum))
-      (let ((count 0))
+      (let ((number (abs number))
+            (count 0))
         (while (> number 0)
           (setq number (/ number 10))
           (setq count (1+ count)))
-        count))
+        count)
     (signal 'wrong-type-argument '(integerp number))))
 
 (defun cnc-remove-line-numbers ()
