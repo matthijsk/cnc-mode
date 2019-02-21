@@ -1,5 +1,4 @@
 ;;; cnc-mode.el --- CNC mode -*- lexical-binding: t -*-
-;; TODO: do not delete blank lines when renumbering or deleting line numbers
 ;; TODO: test on older Emacsen
 ;; TODO: add cnc extension to auto-mode-alist. The others are custom.
 ;; TODO: add autoload cookie to auto-mode-alist
@@ -85,7 +84,7 @@ Anything other than whitespace would not make sense."
                "Removing line numbers..." (point-min) (point-max))))
         ;; Match linenumbers starting with N and a positive or negative number.
         ;; For example N320 or N-1240.
-        (while (re-search-forward "^\\s-*N-?[0-9]+\\s-+" nil t)
+        (while (re-search-forward "^[[:blank:]]*N-?[[:digit:]]+[[:blank:]]" nil t)
           (replace-match "")
           (progress-reporter-update progress-reporter (point)))
         (progress-reporter-done progress-reporter)))))
