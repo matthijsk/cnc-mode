@@ -56,14 +56,13 @@ Anything other than whitespace would not make sense."
   :type 'string
   :group 'cnc)
 
-;; TODO: could this be recursive?
 (defun cnc-number-of-digits (number)
-  "Return the number of digits in the integer NUMBER.
-Only makes sense for positive numbers. Returns nil if the number
-is lower than or equal to 0 or larger than
-`most-positive-fixnum'."
+  "Return the number of digits in the integer NUMBER."
   (if (integerp number)
-      (let ((number (abs number))
+      (let ((number (abs
+                     (if (= number most-negative-fixnum)
+                         (1+ number)
+                       number)))
             (count 0))
         (while (> number 0)
           (setq number (/ number 10))
