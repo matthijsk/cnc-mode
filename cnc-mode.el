@@ -84,7 +84,7 @@ Anything other than whitespace would not make sense."
                "Removing line numbers..." (point-min) (point-max))))
         ;; Match linenumbers starting with N and a positive or negative number.
         ;; For example N320 or N-1240.
-        (while (re-search-forward "^[[:blank:]]*N-?[[:digit:]]+[[:blank:]]" nil t)
+        (while (re-search-forward "^[[:blank:]]*N-?[[:digit:]]+[[:blank:]]+" nil t)
           (replace-match "")
           (progress-reporter-update progress-reporter (point)))
         (progress-reporter-done progress-reporter)))))
