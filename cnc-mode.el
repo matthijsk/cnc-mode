@@ -138,10 +138,7 @@ line will be incremented from the previous value with
         ("\\(T\\)-?[0-9]+" . (1 font-lock-builtin-face))
         ("\\([EFS]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
         ("\\([XYZR]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
-        ("#[0-9]+" . font-lock-variable-name-face)
-        ("Invoke SoftStop" . font-lock-warning-face)
-        ("Start Cycle" . font-lock-warning-face)
-        ("End Cycle" . font-lock-warning-face)))
+        ("#[0-9]+" . font-lock-variable-name-face)))
 
 (defcustom cnc-mode-hook nil
   "Hook run when entering CNC mode."
