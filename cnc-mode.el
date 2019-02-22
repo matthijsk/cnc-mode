@@ -9,7 +9,7 @@
 ;; Created: 17 Feb 2019
 ;; Version: 0.1
 ;; Keywords: languages
-;; URL: unpublished
+;; URL: https://github.com/matthijsk/cnc-mode
 
 ;; This file is NOT part of GNU Emacs.
 
