@@ -40,7 +40,7 @@
   :type 'integer
   :group 'cnc)
 
-(defcustom cnc-line-number-increment 20
+(defcustom cnc-line-number-increment 10
   "Automatic CNC line numbering increment value."
   :type 'integer
   :group 'cnc)
