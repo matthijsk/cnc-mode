@@ -161,11 +161,6 @@ line will be incremented from the previous value with
   (setq-local block-comment-end ")")
   (setq-local require-final-newline 'visit-save))
 
-(add-to-list 'auto-mode-alist '("\\.cnc\\'" . cnc-mode))
-(add-to-list 'auto-mode-alist '("\\.Scnc\\'" . cnc-mode))
-(add-to-list 'auto-mode-alist '("\\._nc\\'" . cnc-mode))
-(add-to-list 'auto-mode-alist '("\\._dc\\'" . cnc-mode))
-
 (provide 'cnc-mode)
 
 ;;; cnc-mode.el ends here
