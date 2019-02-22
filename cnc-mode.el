@@ -1,7 +1,5 @@
 ;;; cnc-mode.el --- CNC mode -*- lexical-binding: t -*-
 ;; TODO: test on older Emacsen
-;; TODO: add cnc extension to auto-mode-alist. The others are custom.
-;; TODO: add autoload cookie to auto-mode-alist
 
 ;; Copyright © 2019 Matthijs Kool
 
@@ -157,6 +155,9 @@ line will be incremented from the previous value with
   (setq-local block-comment-start "(")
   (setq-local block-comment-end ")")
   (setq-local require-final-newline 'visit-save))
+
+;;;###autoload
+(add-to-list 'auto-mode-alist '("\\.cnc\\'" . cnc-mode))
 
 (provide 'cnc-mode)
 
