@@ -24,5 +24,11 @@ file extensions add the following to your init file;
   (add-to-list 'auto-mode-alist '("\\.nc\\'" . cnc-mode))
 #+end_src
 
+Alternatively, if you use ~use-package~:
+#+begin_src emacs-lisp
+  (use-package cnc-mode
+    :load-path "/path/to/cnc-mode")
+#+end_src
+
 Currently, only =.cnc= extensions are added to ~auto-mode-alist~. This will be
 updated later with other common extensions.
