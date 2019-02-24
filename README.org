@@ -1,0 +1,28 @@
+* CNC mode
+A major mode for editing G-code files.
+
+* Screenshot
+[[./img/sample.png]]  
+
+* Features
+- Syntax highlighting for G-codes
+- Removing line numbers: ~M-x cnc-remove-line-numbers~
+- Renumbering line numbers: ~M-x cnc-renumber-lines~. To specify the line number
+  format you can customize ~cnc-line-number-start~, ~cnc-line-number-increment~,
+  ~cnc-line-number-padding~ and ~cnc-line-number-append-string~.
+
+* Set up
+Add the cnc-mode.el directory to ~load-path~:
+#+begin_src emacs-lisp
+  (add-to-list 'load-path "/path/to/cnc-mode")
+#+end_src
+
+To ensure ~cnc-mode~ is automatically enabled when opening a G-code file add the
+file extension to ~auto-mode-alist~. For example, to enable ~cnc-mode~ for =.nc=
+file extensions add the following to your init file;
+#+begin_src emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.nc\\'" . cnc-mode))
+#+end_src
+
+Currently, only =.cnc= extensions are added to ~auto-mode-alist~. This will be
+updated later with other common extensions.
