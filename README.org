@@ -6,10 +6,11 @@ A major mode for editing G-code files.
 
 * Features
 - Syntax highlighting for G-codes
-- Removing line numbers: ~M-x cnc-remove-line-numbers~
-- Renumbering line numbers: ~M-x cnc-renumber-lines~. To specify the line number
-  format you can customize ~cnc-line-number-start~, ~cnc-line-number-increment~,
-  ~cnc-line-number-padding~ and ~cnc-line-number-append-string~.
+- Removing line numbers: ~M-x cnc-remove-line-numbers~ (~C-c C-d~).
+- Renumbering line numbers: ~M-x cnc-renumber-lines~ (~C-c C-r~). To specify the
+  line number format you can customize ~cnc-line-number-start~,
+  ~cnc-line-number-increment~, ~cnc-line-number-padding~ and
+  ~cnc-line-number-append-string~.
 
 * Set up
 Add the cnc-mode.el directory to ~load-path~:

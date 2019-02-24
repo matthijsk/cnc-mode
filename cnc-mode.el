@@ -1,5 +1,4 @@
 ;;; cnc-mode.el --- CNC mode -*- lexical-binding: t -*-
-;; TODO: add README.org
 ;; TODO: test on older Emacsen
 ;; TODO: test with nc files from other machine vendors
 ;; TODO: add unit tests using ert
