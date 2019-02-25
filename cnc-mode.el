@@ -125,10 +125,27 @@ line will be incremented from the previous value with
                 (+ cnc-current-line-number cnc-line-number-increment))
           (forward-line))))))
 
+(defun cnc-next-statement (&optional arg)
+  "Move point forward to next cnc statement.
+With prefix arg, go forward N + 1 statements. Move forward to the
+end of the next statement if already at end."
+  (interactive "p")
+  (re-search-forward "[GMT][[:digit:]]+" nil t arg))
+
+(defun cnc-previous-statement (&optional arg)
+  "Move point backward to start of current cnc statement.
+With prefix arg, go back N - 1 statements. If already at the
+beginning of a statement go to the beginning of the closest
+preceding one."
+  (interactive "p")
+  (cnc-end-of-statement (- arg)))
+
 (defvar cnc-mode-map
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-c C-d") 'cnc-remove-line-numbers)
     (define-key map (kbd "C-c C-r") 'cnc-renumber-lines)
+    (define-key map (kbd "M-e")     'cnc-next-statement)
+    (define-key map (kbd "M-a")     'cnc-previous-statement)
     map)
   "Keymap for CNC mode.")
 
