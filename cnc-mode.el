@@ -1,7 +1,6 @@
 ;;; cnc-mode.el --- CNC mode -*- lexical-binding: t -*-
 ;; TODO: test on older Emacsen
 ;; TODO: test with nc files from other machine vendors
-;; TODO: add unit tests using ert
 ;; TODO: set up travis (or similar)
 
 ;; Copyright © 2019 Matthijs Kool
