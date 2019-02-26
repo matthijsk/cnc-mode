@@ -1,7 +1,8 @@
 ;;; cnc-mode.el --- CNC mode -*- lexical-binding: t -*-
-;; TODO: test on older Emacsen
+;; TODO: add other keywords (sin, cos, etc)
 ;; TODO: test with nc files from other machine vendors
 ;; TODO: set up travis (or similar)
+;; TODO: test on older Emacsen
 
 ;; Copyright © 2019 Matthijs Kool
 
