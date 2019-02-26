@@ -138,7 +138,7 @@ With prefix arg, go back N - 1 statements. If already at the
 beginning of a statement go to the beginning of the closest
 preceding one."
   (interactive "p")
-  (cnc-end-of-statement (- arg)))
+  (cnc-next-statement (- arg)))
 
 (defvar cnc-mode-map
   (let ((map (make-sparse-keymap)))
