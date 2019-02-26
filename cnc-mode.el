@@ -92,8 +92,9 @@ Anything other than whitespace would not make sense."
 
 (defun cnc-renumber-lines ()
   "Automatically renumber lines in a CNC buffer.
-The first line in the buffer will be prefixed with an 'N', the
-value set in `cnc-line-number-start' and finally the string
+The first line in the buffer will be prefixed with an 'N', padded
+with optional 0's if `cnc-line-number-padding' is t, the value
+set in `cnc-line-number-start' and finally the string
 `cnc-line-number-append-string'. The number for each subsequent
 line will be incremented from the previous value with
 `cnc-line-number-increment'."
