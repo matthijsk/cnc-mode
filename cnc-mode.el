@@ -1,5 +1,4 @@
 ;;; cnc-mode.el --- CNC mode -*- lexical-binding: t -*-
-;; TODO: add other keywords (sin, cos, etc)
 ;; TODO: test with nc files from other machine vendors
 ;; TODO: set up travis (or similar)
 ;; TODO: test on older Emacsen
@@ -151,12 +150,20 @@ preceding one."
   "Keymap for CNC mode.")
 
 (setq cnc-mode-highlights
-      '(("(.*)\\|;.*" . font-lock-comment-face)
+      '(("[^[:alpha:]]\\((.*)\\|;.*\\)" . (1 font-lock-comment-face))
         ("G[0-9]+" . font-lock-keyword-face)
         ("M[0-9]+" . font-lock-builtin-face)
         ("\\(T\\)-?[0-9]+" . (1 font-lock-builtin-face))
         ("\\([EFS]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
         ("\\([XYZR]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
+        ("\\(SIN\\|COS\\|TAN\\|ASIN\\|ACOS\\|ATAN\\|HSIN\\|HCOS\\|HTAN\\)(.*)" . (1 font-lock-function-name-face))
+        ("\\(SQRT\\|ABS\\|EXP\\|LN\\|LOG\\|POW\\|HYPOT\\)(.*)" . (1 font-lock-function-name-face))
+        ("\\(ROUND\\|FIX\\|FUP\\)(.*)" . (1 font-lock-function-name-face))
+        ("ERROR\\|MOD" . font-lock-function-name-face)
+        ("PI" . font-lock-constant-face)
+        ("EQ\\|NE\\|GT\\|LT\\|GE\\|LE\\|AND\\|OR\\|XOR" . font-lock-builtin-face)
+        ("\\(DEGREES\\|RADIANS\\)(.*)" . (1 font-lock-function-name-face))
+        ("GOTO\\|IF\\|THEN\\|WHILE\\|DO\\|END" . font-lock-builtin-face)
         ("#[0-9]+" . font-lock-variable-name-face)))
 
 (defcustom cnc-mode-hook nil
