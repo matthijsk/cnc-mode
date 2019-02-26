@@ -150,7 +150,9 @@ preceding one."
   "Keymap for CNC mode.")
 
 (setq cnc-mode-highlights
-      '(("[^[:alpha:]]\\((.*)\\|;.*\\)" . (1 font-lock-comment-face))
+      '(("[^[:alpha:]]\\((.*)\\)" . (1 font-lock-comment-face))
+        (";.*$" . font-lock-comment-face)
+        ("%.*$" . font-lock-comment-face)
         ("G[0-9]+" . font-lock-keyword-face)
         ("M[0-9]+" . font-lock-builtin-face)
         ("\\(T\\)-?[0-9]+" . (1 font-lock-builtin-face))
