@@ -1,4 +1,4 @@
-;;; cnc-mode.el --- CNC mode -*- lexical-binding: t -*-
+;;; cnc-mode.el --- Major mode for editing CNC files -*- lexical-binding: t -*-
 ;; TODO: test with nc files from other machine vendors
 ;; TODO: set up travis (or similar)
 ;; TODO: test on older Emacsen
@@ -7,7 +7,7 @@
 
 ;; Author: Matthijs Kool <matthijzk@gmail.com>
 ;; Created: 17 Feb 2019
-;; Version: 0.1
+;; Version: 0.1.1
 ;; Keywords: languages
 ;; URL: https://github.com/matthijsk/cnc-mode
 
