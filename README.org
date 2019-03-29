@@ -2,7 +2,7 @@
 A major mode for editing G-code files.
 
 * Screenshot
-[[./img/sample.png]]  
+[[img/sample.png]]  
 
 * Features
 - Syntax highlighting for G-codes
@@ -13,23 +13,23 @@ A major mode for editing G-code files.
   ~cnc-line-number-append-string~.
 
 * Set up
-Add the cnc-mode.el directory to ~load-path~:
-#+begin_src emacs-lisp
+Add the cnc-mode.el directory to ~load-path~ :
+#+BEGIN_SRC emacs-lisp
   (add-to-list 'load-path "/path/to/cnc-mode")
-#+end_src
+#+END_SRC
 
 To ensure ~cnc-mode~ is automatically enabled when opening a G-code file add the
 file extension to ~auto-mode-alist~. For example, to enable ~cnc-mode~ for =.nc=
 file extensions add the following to your init file;
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (add-to-list 'auto-mode-alist '("\\.nc\\'" . cnc-mode))
-#+end_src
+#+END_SRC
 
-Alternatively, if you use ~use-package~:
-#+begin_src emacs-lisp
+Alternatively, if you use ~use-package~ :
+#+BEGIN_SRC emacs-lisp
   (use-package cnc-mode
     :load-path "/path/to/cnc-mode")
-#+end_src
+#+END_SRC
 
 Currently, only =.cnc= extensions are added to ~auto-mode-alist~. This will be
 updated later with other common extensions.
