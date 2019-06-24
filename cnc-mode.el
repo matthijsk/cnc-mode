@@ -1,4 +1,4 @@
-;;; cnc-mode.el --- Major mode for editing CNC files -*- lexical-binding: t -*-
+;;; cnc-mode.el --- Major mode for editing CNC G-code files -*- lexical-binding: t -*-
 ;; TODO: test with nc files from other machine vendors
 ;; TODO: set up travis (or similar)
 ;; TODO: test on older Emacsen
@@ -32,8 +32,9 @@
 
 ;;; Code:
 
-(defgroup cnc nil "CNC mode."
-  :prefix "cnc-")
+(defgroup cnc nil "Major mode for editing CNC G-code files."
+  :prefix "cnc-"
+  :group 'languages)
 
 (defcustom cnc-line-number-start 10
   "Number at which automatic line numbering of CNC files will start."
