@@ -7,7 +7,7 @@
 
 ;; Author: Matthijs Kool <matthijzk@gmail.com>
 ;; Created: 17 Feb 2019
-;; Version: 0.1.4
+;; Version: 0.1.5
 ;; Keywords: languages
 ;; URL: https://github.com/matthijsk/cnc-mode
 
