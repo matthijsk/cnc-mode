@@ -68,6 +68,14 @@ Anything other than whitespace would not make sense."
           (1+ (cnc-number-of-digits number))))
     (signal 'wrong-type-argument '(integerp number))))
 
+(defun cnc--remove-line-number()
+  "Remove line number from current line."
+  (beginning-of-line)
+  ;; Match linenumbers starting with N and a positive or negative number.
+  ;; For example N320 or N-1240.
+  (when (re-search-forward "^[[:blank:]]*N-?[[:digit:]]+[[:blank:]]+" (line-end-position) t)
+    (replace-match "")))
+
 (defun cnc-remove-line-numbers ()
   "Remove line numbers from a CNC buffer."
   (interactive)
@@ -78,10 +86,9 @@ Anything other than whitespace would not make sense."
       (let* ((progress-reporter
               (make-progress-reporter
                "Removing line numbers..." (point-min) (point-max))))
-        ;; Match linenumbers starting with N and a positive or negative number.
-        ;; For example N320 or N-1240.
-        (while (re-search-forward "^[[:blank:]]*N-?[[:digit:]]+[[:blank:]]+" nil t)
-          (replace-match "")
+        (while (< (point) (point-max))
+          (cnc--remove-line-number)
+          (forward-line)
           (progress-reporter-update progress-reporter (point)))
         (progress-reporter-done progress-reporter)))))
 
@@ -94,7 +101,6 @@ set in `cnc-line-number-start' and finally the string
 line will be incremented from the previous value with
 `cnc-line-number-increment'."
   (interactive)
-  (cnc-remove-line-numbers)
   (save-excursion
     (save-restriction
       (widen)
@@ -111,8 +117,8 @@ line will be incremented from the previous value with
                                  (cnc-number-of-digits
                                   (* last-line cnc-line-number-increment)))))
                       "d%s")))
-        (dotimes-with-progress-reporter (i last-line)
-            "Renumbering lines..."
+        (dotimes-with-progress-reporter (i last-line) "Renumbering lines..."
+          (cnc--remove-line-number)
           (insert
            (format format-string
                    cnc-current-line-number cnc-line-number-append-string))
