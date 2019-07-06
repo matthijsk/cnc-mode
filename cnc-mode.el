@@ -62,15 +62,10 @@ Anything other than whitespace would not make sense."
 (defun cnc-number-of-digits (number)
   "Return the number of digits in the integer NUMBER."
   (if (integerp number)
-      (let ((number (abs
-                     (if (= number most-negative-fixnum)
-                         (1+ number)
-                       number)))
-            (count 0))
-        (while (> number 0)
-          (setq number (/ number 10))
-          (setq count (1+ count)))
-        count)
+      (let ((number (/ number 10)))
+        (if (zerop number)
+            1
+          (1+ (cnc-number-of-digits number))))
     (signal 'wrong-type-argument '(integerp number))))
 
 (defun cnc-remove-line-numbers ()

@@ -1,12 +1,14 @@
 (require 'cnc-mode)
 
 (ert-deftest cnc-test-number-of-digits ()
+  (should (eql (cnc-number-of-digits 0) 1))
   (should (eql (cnc-number-of-digits 1) 1))
   (should (eql (cnc-number-of-digits 2) 1))
   (should (eql (cnc-number-of-digits 10) 2))
   (should (eql (cnc-number-of-digits 5000) 4))
   (should (eql (cnc-number-of-digits 123456789) 9))
 
+  (should (eql (cnc-number-of-digits -0) 1))
   (should (eql (cnc-number-of-digits -1) 1))
   (should (eql (cnc-number-of-digits -2) 1))
   (should (eql (cnc-number-of-digits -10) 2))
