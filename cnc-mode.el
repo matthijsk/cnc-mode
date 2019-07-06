@@ -109,7 +109,6 @@ line will be incremented from the previous value with
              (format-string
               ;; Set format string to N%0<width>d%s if padding is enabled.
               ;; Otherwise, set it to N%s.
-              ;; (concat "N%0"
               (concat "N%"
                       (when cnc-line-number-padding
                         (concat "0"
