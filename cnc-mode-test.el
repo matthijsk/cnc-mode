@@ -20,6 +20,7 @@
   (should (eql (cnc-number-of-digits ?\d) 3))
   (should (eql (cnc-number-of-digits ?c) 2))
 
+  (should-error (eql (cnc-number-of-digits 'wrong-type-argument) 'wrong-type-argument))
   (should-error (eql (cnc-number-of-digits "wrong type") 'wrong-type-argument))
   (should-error (eql (cnc-number-of-digits 1.0) 'wrong-type-argument))
   (should-error (eql (cnc-number-of-digits -1.0) 'wrong-type-argument)))
