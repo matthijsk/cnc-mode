@@ -1,7 +1,6 @@
 ;;; cnc-mode.el --- Major mode for editing CNC G-code files -*- lexical-binding: t -*-
 ;; TODO: test with nc files from other machine vendors
 ;; TODO: set up travis (or similar)
-;; TODO: test on older Emacsen
 
 ;; Copyright © 2019 Matthijs Kool
 
@@ -10,6 +9,7 @@
 ;; Version: 0.1.5
 ;; Keywords: languages
 ;; URL: https://github.com/matthijsk/cnc-mode
+;; Package-Requires: ((emacs "24.3"))
 
 ;; This file is NOT part of GNU Emacs.
 
