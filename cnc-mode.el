@@ -83,14 +83,10 @@ Anything other than whitespace would not make sense."
     (save-restriction
       (widen)
       (goto-char (point-min))
-      (let* ((progress-reporter
-              (make-progress-reporter
-               "Removing line numbers..." (point-min) (point-max))))
-        (while (< (point) (point-max))
+      (let ((last-line (line-number-at-pos (point-max))))
+        (dotimes-with-progress-reporter (i last-line) "Removing line numbers..."
           (cnc--remove-line-number)
-          (forward-line)
-          (progress-reporter-update progress-reporter (point)))
-        (progress-reporter-done progress-reporter)))))
+          (forward-line))))))
 
 (defun cnc-renumber-lines ()
   "Automatically renumber lines in a CNC buffer.
