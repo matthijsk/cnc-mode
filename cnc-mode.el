@@ -148,28 +148,20 @@ to the beginning of the closest preceding one."
       '(("(.*)" . font-lock-comment-face)
         (";.*$" . font-lock-comment-face)
         ("%.*$" . font-lock-comment-face)
-        ("[gG][0-9]+" . font-lock-keyword-face)
-        ("[mM][0-9]+" . font-lock-builtin-face)
-        ("\\([tT]\\)-?[0-9]+" . (1 font-lock-builtin-face))
-        ("\\([fFsS]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
-        ("\\([xXyYzZpPqQrRbB]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
-        ("\\([iIjJkK]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
+        ("[G][0-9]+" . font-lock-keyword-face)
+        ("[M][0-9]+" . font-lock-builtin-face)
+        ("\\([T]\\)-?[0-9]+" . (1 font-lock-builtin-face))
+        ("\\([FS]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
+        ("\\([XYZPQRB]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
+        ("\\([IJK]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
         ("\\(SIN\\|COS\\|TAN\\|ASIN\\|ACOS\\|ATAN\\|HSIN\\|HCOS\\|HTAN\\)\\[.*\\]" . (1 font-lock-function-name-face))
-        ("\\(sin\\|cos\\|tan\\|asin\\|acos\\|atan\\|hsin\\|hcos\\|htan\\)\\[.*\\]" . (1 font-lock-function-name-face))
         ("\\(SQRT\\|ABS\\|EXP\\|LN\\|LOG\\|POW\\|HYPOT\\)\\[.*\\]" . (1 font-lock-function-name-face))
-        ("\\(sqrt\\|abs\\|exp\\|ln\\|log\\|pow\\|hypot\\)\\[.*\\]" . (1 font-lock-function-name-face))
         ("\\(ROUND\\|FIX\\|FUP\\)\\[.*\\]" . (1 font-lock-function-name-face))
-        ("\\(round\\|fix\\|fup\\)\\[.*\\]" . (1 font-lock-function-name-face))
         ("ERROR\\|MOD" . font-lock-function-name-face)
-        ("error\\|mod" . font-lock-function-name-face)
         ("PI" . font-lock-constant-face)
-        ("pi" . font-lock-constant-face)
         ("EQ\\|NE\\|GT\\|LT\\|GE\\|LE\\|AND\\|OR\\|XOR" . font-lock-builtin-face)
-        ("eq\\|ne\\|gt\\|lt\\|ge\\|le\\|and\\|or\\|xor" . font-lock-builtin-face)
         ("\\(DEGREES\\|RADIANS\\)\\[.*\\]" . (1 font-lock-function-name-face))
-        ("\\(degrees\\|radians\\)\\[.*\\]" . (1 font-lock-function-name-face))
         ("GOTO\\|IF\\|THEN\\|WHILE\\|DO\\|END" . font-lock-builtin-face)
-        ("goto\\|if\\|then\\|while\\|do\\|end" . font-lock-builtin-face)
         ("#[0-9]+" . font-lock-variable-name-face)))
 
 (defcustom cnc-mode-hook nil
@@ -183,7 +175,10 @@ to the beginning of the closest preceding one."
 
 \\{cnc-mode-map}"
   :group 'cnc
-  (setq font-lock-defaults '(cnc-mode-highlights))
+  (setq font-lock-defaults
+        '(cnc-mode-highlights ; KEYWORDS
+          nil                 ; KEYWORDS-ONLY
+          t))                 ; CASE-FOLD (ignore case when fontifying)
   (setq-local comment-start "; ")
   (setq-local comment-end   "")
   (setq-local block-comment-start "(")
