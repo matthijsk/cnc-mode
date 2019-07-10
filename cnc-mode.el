@@ -145,23 +145,25 @@ to the beginning of the closest preceding one."
   "Keymap for CNC mode.")
 
 (setq cnc-mode-highlights
-      '(("(.*)" . font-lock-comment-face)
+      `(("(.*)" . font-lock-comment-face)
         (";.*$" . font-lock-comment-face)
         ("%.*$" . font-lock-comment-face)
         ("[G][0-9]+" . font-lock-keyword-face)
         ("[M][0-9]+" . font-lock-builtin-face)
         ("\\([T]\\)-?[0-9]+" . (1 font-lock-builtin-face))
-        ("\\([FS]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
-        ("\\([XYZPQRB]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
-        ("\\([IJK]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
-        ("\\(SIN\\|COS\\|TAN\\|ASIN\\|ACOS\\|ATAN\\|HSIN\\|HCOS\\|HTAN\\)\\[.*\\]" . (1 font-lock-function-name-face))
-        ("\\(SQRT\\|ABS\\|EXP\\|LN\\|LOG\\|POW\\|HYPOT\\)\\[.*\\]" . (1 font-lock-function-name-face))
-        ("\\(ROUND\\|FIX\\|FUP\\)\\[.*\\]" . (1 font-lock-function-name-face))
-        ("ERROR\\|MOD" . font-lock-function-name-face)
+        ("\\([FSXYZPQRBIJK]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
         ("PI" . font-lock-constant-face)
-        ("EQ\\|NE\\|GT\\|LT\\|GE\\|LE\\|AND\\|OR\\|XOR" . font-lock-builtin-face)
-        ("\\(DEGREES\\|RADIANS\\)\\[.*\\]" . (1 font-lock-function-name-face))
-        ("GOTO\\|IF\\|THEN\\|WHILE\\|DO\\|END" . font-lock-builtin-face)
+        (,(regexp-opt '("SIN" "COS" "TAN" "ASIN" "ACOS" "ATAN" "HSIN" "HCOS" "HTAN"
+                        "SQRT" "ABS" "EXP" "LN" "LOG" "POW" "HYPOT"
+                        "ROUND" "FIX" "FUP"
+                        "ERROR" "MOD"
+                        "DEGREES" "RADIANS")
+                      'words)
+         . (1 font-lock-function-name-face))
+        (,(regexp-opt '("EQ" "NE" "GT" "LT" "GE" "LE" "AND" "OR" "XOR"
+                        "GOTO" "IF" "THEN" "WHILE" "DO" "END")
+                      'words)
+         . font-lock-builtin-face)
         ("#[0-9]+" . font-lock-variable-name-face)))
 
 (defcustom cnc-mode-hook nil
