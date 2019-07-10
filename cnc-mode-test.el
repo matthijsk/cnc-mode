@@ -43,8 +43,8 @@
   ;; Test with padding
   (let ((cnc-line-number-start 10)
         (cnc-line-number-increment 10)
-        (cnc-line-number-padding t)
-        (cnc-line-number-append-string " "))
+        (cnc-line-number-zero-padding t)
+        (cnc-line-number-padding " "))
     (with-temp-buffer
       (dotimes (count 100)
         (insert (format "G01\n" count)))
@@ -60,8 +60,8 @@
   ;; Test with no padding
   (let ((cnc-line-number-start 10)
         (cnc-line-number-increment 10)
-        (cnc-line-number-padding nil)
-        (cnc-line-number-append-string " "))
+        (cnc-line-number-zero-padding nil)
+        (cnc-line-number-padding " "))
     (with-temp-buffer
       (dotimes (count 100)
         (insert (format "G01\n" count)))

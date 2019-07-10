@@ -46,18 +46,20 @@
   :type 'integer
   :group 'cnc)
 
-(defcustom cnc-line-number-padding t
+(defcustom cnc-line-number-zero-padding t
   "Left padding for CNC line numbers.
 When t, line numbers will be padded at the left with zeroes. The
 padding width is dependent on the total number of lines."
   :type 'boolean
-  :group 'cnc)
+  :group 'cnc
+  :package-version '(cnc-mode . "0.2"))
 
-(defcustom cnc-line-number-append-string "   "
+(defcustom cnc-line-number-padding "   "
   "String appended after an automatically inserted CNC line number.
 Anything other than whitespace would not make sense."
   :type 'string
-  :group 'cnc)
+  :group 'cnc
+  :package-version '(cnc-mode . "0.2"))
 
 (defun cnc-number-of-digits (number)
   "Return the number of digits in the integer NUMBER."
@@ -91,9 +93,9 @@ Anything other than whitespace would not make sense."
 (defun cnc-renumber-lines ()
   "Automatically renumber lines in a CNC buffer.
 The first line in the buffer will be prefixed with an 'N', padded
-with optional 0's if `cnc-line-number-padding' is t, the value
+with optional 0's if `cnc-line-number-zero-padding' is t, the value
 set in `cnc-line-number-start' and finally the string
-`cnc-line-number-append-string'. The number for each subsequent
+`cnc-line-number-padding'. The number for each subsequent
 line will be incremented from the previous value with
 `cnc-line-number-increment'."
   (interactive)
@@ -107,7 +109,7 @@ line will be incremented from the previous value with
               ;; Set format string to N%0<width>d%s if padding is enabled.
               ;; Otherwise, set it to N%s.
               (concat "N%"
-                      (when cnc-line-number-padding
+                      (when cnc-line-number-zero-padding
                         (concat "0"
                                 (number-to-string
                                  (cnc-number-of-digits
@@ -117,7 +119,7 @@ line will be incremented from the previous value with
           (cnc--remove-line-number)
           (insert
            (format format-string
-                   cnc-current-line-number cnc-line-number-append-string))
+                   cnc-current-line-number cnc-line-number-padding))
           (setq cnc-current-line-number
                 (+ cnc-current-line-number cnc-line-number-increment))
           (forward-line))))))
@@ -189,8 +191,8 @@ to the beginning of the closest preceding one."
   (setq-local require-final-newline 'visit-save)
   (make-local-variable 'cnc-line-number-start)
   (make-local-variable 'cnc-line-number-increment)
-  (make-local-variable 'cnc-line-number-padding)
-  (make-local-variable 'cnc-line-number-append-string))
+  (make-local-variable 'cnc-line-number-zero-padding)
+  (make-local-variable 'cnc-line-number-padding))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.cnc\\'" . cnc-mode))
