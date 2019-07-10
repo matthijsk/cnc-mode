@@ -182,7 +182,7 @@ to the beginning of the closest preceding one."
         '(cnc-mode-highlights ; KEYWORDS
           nil                 ; KEYWORDS-ONLY
           t))                 ; CASE-FOLD (ignore case when fontifying)
-  (setq-local comment-start "; ")
+  (setq-local comment-start ";")
   (setq-local comment-end   "")
   (setq-local block-comment-start "(")
   (setq-local block-comment-end ")")
