@@ -137,10 +137,10 @@ to the beginning of the closest preceding one."
 
 (defvar cnc-mode-map
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "C-c C-d") 'cnc-remove-line-numbers)
-    (define-key map (kbd "C-c C-r") 'cnc-renumber-lines)
-    (define-key map (kbd "M-e")     'cnc-next-statement)
-    (define-key map (kbd "M-a")     'cnc-previous-statement)
+    (define-key map (kbd "C-c C-d") #'cnc-remove-line-numbers)
+    (define-key map (kbd "C-c C-r") #'cnc-renumber-lines)
+    (define-key map (kbd "M-e")     #'cnc-next-statement)
+    (define-key map (kbd "M-a")     #'cnc-previous-statement)
     map)
   "Keymap for CNC mode.")
 
