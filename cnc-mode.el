@@ -183,7 +183,11 @@ to the beginning of the closest preceding one."
   (setq-local comment-end   "")
   (setq-local block-comment-start "(")
   (setq-local block-comment-end ")")
-  (setq-local require-final-newline 'visit-save))
+  (setq-local require-final-newline 'visit-save)
+  (make-local-variable 'cnc-line-number-start)
+  (make-local-variable 'cnc-line-number-increment)
+  (make-local-variable 'cnc-line-number-padding)
+  (make-local-variable 'cnc-line-number-append-string))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.cnc\\'" . cnc-mode))
