@@ -151,8 +151,7 @@ to the beginning of the closest preceding one."
     (";.*$" . font-lock-comment-face)
     ("%.*$" . font-lock-comment-face)
     ("[G][0-9]+" . font-lock-keyword-face)
-    ("[M][0-9]+" . font-lock-builtin-face)
-    ("\\([T]\\)-?[0-9]+" . (1 font-lock-builtin-face))
+    ("\\([MT]\\)-?[0-9]+" . (1 font-lock-builtin-face))
     ("\\([FSXYZPQRBIJK]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
     ("PI" . font-lock-constant-face)
     (,(regexp-opt '("SIN" "COS" "TAN" "ASIN" "ACOS" "ATAN" "HSIN" "HCOS" "HTAN"
@@ -161,11 +160,11 @@ to the beginning of the closest preceding one."
                     "ERROR" "MOD"
                     "DEGREES" "RADIANS")
                   'words)
-     . (1 font-lock-function-name-face))
+     . (1 font-lock-builtin-face))
     (,(regexp-opt '("EQ" "NE" "GT" "LT" "GE" "LE" "AND" "OR" "XOR"
                     "GOTO" "IF" "THEN" "WHILE" "DO" "END")
                   'words)
-     . font-lock-builtin-face)
+     . font-lock-keyword-face)
     ("#[0-9]+" . font-lock-variable-name-face))
   "Default expressions to highlight in CNC mode.")
 
