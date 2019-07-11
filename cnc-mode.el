@@ -48,7 +48,7 @@
 
 (defcustom cnc-line-number-zero-padding t
   "Left padding for CNC line numbers.
-When t, line numbers will be padded at the left with zeros. The
+When t, line numbers will be padded at the left with zeros.  The
 padding width is dependent on the total number of lines."
   :type 'boolean
   :group 'cnc
@@ -93,10 +93,10 @@ Anything other than whitespace would not make sense."
 (defun cnc-renumber-lines ()
   "Renumber lines in a CNC buffer.
 The first line in the buffer will be prefixed with an 'N', padded
-with optional 0's if `cnc-line-number-zero-padding' is t, the value
-set in `cnc-line-number-start' and finally the string
-`cnc-line-number-padding'. The number for each subsequent
-line will be incremented from the previous value with
+with optional 0's if `cnc-line-number-zero-padding' is t, the
+value set in `cnc-line-number-start' and finally the string
+`cnc-line-number-padding'.  The number for each subsequent line
+will be incremented from the previous value with
 `cnc-line-number-increment'."
   (interactive)
   (save-excursion
@@ -126,13 +126,13 @@ line will be incremented from the previous value with
 
 (defun cnc-next-statement (&optional arg)
   "Move point forward to next CNC statement.
-With ARG, repeat. With negative ARG, move backward."
+With ARG, repeat.  With negative ARG, move backward."
   (interactive "p")
   (re-search-forward "[GMT][[:digit:]]+" nil t arg))
 
 (defun cnc-previous-statement (&optional arg)
   "Move point backward to start of current CNC statement.
-With ARG, repeat. If already at the beginning of a statement go
+With ARG, repeat.  If already at the beginning of a statement go
 to the beginning of the closest preceding one."
   (interactive "p")
   (cnc-next-statement (- arg)))
