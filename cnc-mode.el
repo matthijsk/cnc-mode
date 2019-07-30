@@ -160,7 +160,7 @@ to the beginning of the closest preceding one."
                     "ERROR" "MOD"
                     "DEGREES" "RADIANS")
                   'words)
-     . (1 font-lock-builtin-face))
+     . font-lock-builtin-face)
     (,(regexp-opt '("EQ" "NE" "GT" "LT" "GE" "LE" "AND" "OR" "XOR"
                     "GOTO" "IF" "THEN" "WHILE" "DO" "END")
                   'words)
