@@ -6,7 +6,7 @@
 
 ;; Author: Matthijs Kool <matthijzk@gmail.com>
 ;; Created: 17 Feb 2019
-;; Version: 0.2.0
+;; Version: 0.2.1
 ;; Keywords: languages
 ;; URL: https://github.com/matthijsk/cnc-mode
 ;; Package-Requires: ((emacs "24.3"))
