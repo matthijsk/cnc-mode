@@ -150,21 +150,21 @@ to the beginning of the closest preceding one."
   `(("(.*)" . font-lock-comment-face)
     (";.*$" . font-lock-comment-face)
     ("%.*$" . font-lock-comment-face)
-    ("[G][0-9]+" . font-lock-keyword-face)
-    ("\\([MTO]\\)-?[0-9]+" . (1 font-lock-builtin-face))
-    ("\\([FSXYZPQRBIJK]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
     ("PI" . font-lock-constant-face)
     (,(regexp-opt '("SIN" "COS" "TAN" "ASIN" "ACOS" "ATAN" "HSIN" "HCOS" "HTAN"
                     "SQRT" "ABS" "EXP" "LN" "LOG" "POW" "HYPOT"
                     "ROUND" "FIX" "FUP"
                     "ERROR" "MOD"
                     "DEGREES" "RADIANS")
-                  'words)
+                  nil)
      . font-lock-builtin-face)
     (,(regexp-opt '("EQ" "NE" "GT" "LT" "GE" "LE" "AND" "OR" "XOR"
                     "GOTO" "IF" "THEN" "WHILE" "DO" "END")
-                  'words)
+                  nil)
      . font-lock-keyword-face)
+    ("[G][0-9]+" . font-lock-keyword-face)
+    ("\\([MTO]\\)-?[0-9]+" . (1 font-lock-builtin-face))
+    ("\\([FSXYZPQRBIJK]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
     ("#[0-9]+" . font-lock-variable-name-face))
   "Default expressions to highlight in CNC mode.")
 
