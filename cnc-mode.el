@@ -153,6 +153,7 @@ to the beginning of the closest preceding one."
     (modify-syntax-entry ?% "<" table)
     (modify-syntax-entry ?\; "<" table)
     (modify-syntax-entry ?\n ">" table)
+    (modify-syntax-entry ?\# "_" table)
     table)
   "Syntax table for CNC mode.")
 
