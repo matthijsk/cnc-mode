@@ -146,11 +146,18 @@ to the beginning of the closest preceding one."
     map)
   "Keymap for CNC mode.")
 
+(defvar cnc-mode-syntax-table
+  (let ((table (make-syntax-table)))
+    (modify-syntax-entry ?\( "<" table)
+    (modify-syntax-entry ?\) ">" table)
+    (modify-syntax-entry ?% "<" table)
+    (modify-syntax-entry ?\; "<" table)
+    (modify-syntax-entry ?\n ">" table)
+    table)
+  "Syntax table for CNC mode.")
+
 (defconst cnc-mode-highlights
-  `(("(.*)" . font-lock-comment-face)
-    (";.*$" . font-lock-comment-face)
-    ("%.*$" . font-lock-comment-face)
-    ("PI" . font-lock-constant-face)
+  `(("PI" . font-lock-constant-face)
     (,(regexp-opt '("SIN" "COS" "TAN" "ASIN" "ACOS" "ATAN" "HSIN" "HCOS" "HTAN"
                     "SQRT" "ABS" "EXP" "LN" "LOG" "POW" "HYPOT"
                     "ROUND" "FIX" "FUP"
