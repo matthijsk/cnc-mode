@@ -1,5 +1,4 @@
 ;;; cnc-mode.el --- Major mode for editing CNC G-code files -*- lexical-binding: t -*-
-;; TODO: test with nc files from other machine vendors
 ;; TODO: set up travis (or similar)
 
 ;; Copyright © 2019 Matthijs Kool
@@ -184,7 +183,7 @@ to the beginning of the closest preceding one."
 
 ;;;###autoload
 (define-derived-mode cnc-mode prog-mode "CNC"
-  "Major mode for editing Style CNC G-codes.
+  "Major mode for editing CNC G-codes.
 
 \\{cnc-mode-map}"
   :group 'cnc
