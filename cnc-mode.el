@@ -172,7 +172,7 @@ to the beginning of the closest preceding one."
      . font-lock-keyword-face)
     ("[G][0-9]+" . font-lock-keyword-face)
     ("\\([MTO]\\)-?[0-9]+" . (1 font-lock-builtin-face))
-    ("\\([FSXYZPQRBIJK]\\)-?[0-9]+" . (1 font-lock-variable-name-face))
+    ("\\([FSXYZPQRBIJK]\\)[#[]?-?[0-9]+" . (1 font-lock-variable-name-face))
     ("#\\(\\[\\|[0-9]+\\)" . font-lock-variable-name-face)
     ("^N[0-9]*" . font-lock-constant-face))
   "Default expressions to highlight in CNC mode.")
