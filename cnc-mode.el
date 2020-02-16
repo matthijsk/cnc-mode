@@ -1,5 +1,4 @@
 ;;; cnc-mode.el --- Major mode for editing CNC G-code files -*- lexical-binding: t -*-
-;; TODO: set up travis (or similar)
 
 ;; Copyright © 2019 Matthijs Kool
 
